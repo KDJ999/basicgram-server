@@ -15,7 +15,7 @@ router.post("/createcomment", validateSession, async (req, res) => {
     let newComment = {
       comment: req.body.comment,
       userId: req.user.id,
-      postId: req.body.PostId,
+      postId: req.body.postId, //is what we will use to pull comments for specific post
     };
     Comment.create(newComment).then((comment) =>
       res.status(200).json({
